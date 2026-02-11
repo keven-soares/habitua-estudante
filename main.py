@@ -1,6 +1,8 @@
-estudante = []
-empresa = []
-imovel = []
+estudante = [{'nome': 'João', 'email': 'joao@email.com', 'senha': '123'}]
+empresa = [{'nome': 'fafic', 'responsavel': 'padre', 'email': 'padre@gmail.com', 'senha': '123'}]
+imovel = [{'titulo': 'casa grande', 'tipo': 'casa', 'preco': '1400', 'endereco': 'rua padre jose', 'distancia': '1km', 'quartos': '3',
+            'banheiros': '2', 'area': '100', 'descricao': 'sala grande e varanda ventilada', 'contato': '83999998888' }]
+republica = []
 estagio = []
 
 while True:
@@ -15,7 +17,7 @@ while True:
 
     if op == '1':
         print('\n---- cadastro -----')
-        tipo_conta = input('voçê é empresa ou estudante: ')
+        tipo_conta = input('você é empresa ou estudante: ')
 
         if tipo_conta == 'estudante':
             info_estudante = {
@@ -79,11 +81,11 @@ while True:
 
                     elif op == '2':
                         print('--- opções de repúblicas e quartos ---')
-                        if len(imovel) < 1:  # Aqui você está usando imovel, mas deveria ter uma lista separada
+                        if len(republica) < 1:
                             print('nenhuma república ou quarto disponível')
                         else:
-                            for rep in imovel:
-                                for chave, valor in rep.items():
+                            for vaga in republica:
+                                for chave, valor in vaga.items():
                                     print(f'{chave}: {valor}')
                                     print('-' * 30)
 
@@ -104,14 +106,14 @@ while True:
                             'tipo' : input('tipo do imóvel (apartamento, casa...): '),
                             'preco' : input('preço mensal: '),
                             'endereco' : input('nome da rua, número e bairro: '),
-                            'distancia' : float(input('qual a distancia ate a universidade mais proxima: ')),
+                            'distancia' : input('qual a distancia ate a universidade mais proxima: '),
                             'quartos' : int(input('possui quantos quartos: ')),
                             'banheiros' : int(input('possui quantos banheiros: ')),
                             'area' : float(input('tamanho do imóvel (m*2): ')),
                             'descricao' : input('descreva o imóvel (comodidades, características...) : '),
                             'contato' : input('digite seu numero para contato: ')
                         }
-                        imovel.append(info_quarto)  # Aqui você adiciona na lista imovel
+                        republica.append(info_quarto)
                         print('quarto / república cadastrado(a) com sucesso!')
                         
                     elif op == '0':
@@ -138,7 +140,7 @@ while True:
                             'tipo' : input('tipo do imóvel (apartamento, casa...): '),
                             'preco' : input('preço mensal: '),
                             'endereco' : input('nome da rua, número e bairro: '),
-                            'distancia' : float(input('qual a distancia ate a universidade mais proxima: ')),
+                            'distancia' : input('qual a distancia ate a universidade mais proxima: '),
                             'quartos' : int(input('possui quantos quartos: ')),
                             'banheiros' : int(input('possui quantos banheiros: ')),
                             'area' : float(input('tamanho do imóvel (m*2): ')),
