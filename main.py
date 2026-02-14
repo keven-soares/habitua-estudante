@@ -33,7 +33,7 @@ while True:
         elif tipo_conta == 'empresa':
             info_empresa = {
                 'nome' : input('nome da empresa: '),
-                'responsável' : input('nome do responsável pela empresa: '),
+                'responsavel' : input('nome do responsável pela empresa: '),
                 'email' : input('email: '),
                 'senha' : input('senha: ')
             }
@@ -43,7 +43,6 @@ while True:
         else:
             print('Tipo de conta inválido.')
 
-
     # ------------ LOGIN -------------- #
 
     elif op == '2':
@@ -52,14 +51,27 @@ while True:
         senha_login = input('Senha: ')
 
         logado = False
+        tipo_estudante = False
+        tipo_empresa = False
 
-        # Login estudante
         for est in estudante:
             if est['email'] == email_login and est['senha'] == senha_login:
                 print('Login de estudante realizado com sucesso!')
                 logado = True
+                tipo_estudante = True
+                break
 
-                while logado:
+        if not logado:
+            for emp in empresa:
+                if emp['email'] == email_login and emp['senha'] == senha_login:
+                    print('login de empresa cadastrada com sucesso!')
+                    logado = True
+                    tipo_empresa = True
+                    break
+        
+        if logado:
+            if tipo_estudante:
+                while True:
                     print('Bem vindo à sua nova cidade!')
                     print('1- imovéis para alugar')
                     print('2- repúblicas e quartos')
@@ -107,9 +119,9 @@ while True:
                             'preco' : input('preço mensal: '),
                             'endereco' : input('nome da rua, número e bairro: '),
                             'distancia' : input('qual a distancia ate a universidade mais proxima: '),
-                            'quartos' : int(input('possui quantos quartos: ')),
-                            'banheiros' : int(input('possui quantos banheiros: ')),
-                            'area' : float(input('tamanho do imóvel (m*2): ')),
+                            'quartos' : input('possui quantos quartos: '),
+                            'banheiros' : input('possui quantos banheiros: '),
+                            'area' : input('tamanho do imóvel (m*2): '),
                             'descricao' : input('descreva o imóvel (comodidades, características...) : '),
                             'contato' : input('digite seu numero para contato: ')
                         }
@@ -117,18 +129,17 @@ while True:
                         print('quarto / república cadastrado(a) com sucesso!')
                         
                     elif op == '0':
-                        logado = False
+                        print('Saindo do menu estudante...')
+                        break
 
-        # Login empresa
-        for emp in empresa:
-            if emp['email'] == email_login and emp['senha'] == senha_login:
-                print('Login de empresa realizado com sucesso!')
-                logado = True
+                    else:
+                        print('opção inválida!')
 
-                while logado:
+            elif tipo_empresa:
+                while True:
                     print('bem vindo, esperamos que consiga alugar seu imóvel ou uma nova contratação para sua empresa!')
-                    print('1- alugar imóvel')
-                    print('2- contratação')
+                    print('1- anunciar imóvel')
+                    print('2- anunciar estágio')
                     print('0- sair do programa')
 
                     op = input('digite a opção desejada: ')
@@ -141,9 +152,9 @@ while True:
                             'preco' : input('preço mensal: '),
                             'endereco' : input('nome da rua, número e bairro: '),
                             'distancia' : input('qual a distancia ate a universidade mais proxima: '),
-                            'quartos' : int(input('possui quantos quartos: ')),
-                            'banheiros' : int(input('possui quantos banheiros: ')),
-                            'area' : float(input('tamanho do imóvel (m*2): ')),
+                            'quartos' : input('possui quantos quartos: '),
+                            'banheiros' : input('possui quantos banheiros: '),
+                            'area' : input('tamanho do imóvel (m*2): '),
                             'descricao' : input('descreva o imóvel (comodidades, características...) : '),
                             'contato' : input('digite seu numero para contato: ')
                         }
@@ -166,12 +177,17 @@ while True:
                         print('Vaga de estágio cadastrada com sucesso!')
                     
                     elif op == '0':
-                        logado = False
+                        print('saindo do menu empresa...')
+                        break
 
-        if not logado:
+                    else:
+                        print('Opção inválida!')
+
+
+        else:
             print('Email ou senha incorretos!')
 
-    # ---------- SAIR ---------- #
+     # ---------- SAIR ---------- #
     elif op == '0':
         print('Saindo do programa...')
         break

@@ -1,31 +1,15 @@
-cadastro = input('voce possui cadastro n / s: ')
-if cadastro == 'n':
-    print ('---cadastro de usuarios---')
-    tipo_conta = input('estudante / empresa: ')
-    if tipo_conta == 'estudante':
-        nome_completo = input('digite seu nome completo: ')
-        curso = input('qual é seu curso: ')
-        universidade = input('digite o nome da sua universidade: ')
-        email_estudante = input('digite o seu melhor e-mail: ')
-        senha_estudante = input('digite sua senha: ')
+#documentação
+#site web com foco em habituar o estudante em uma nova cidade, com foco imóveis para alugar, repúblicas / quartos e vagas de estágio
 
-        print('cadastro efetuado com sucesso!')
+#cadastro: duas opções de cadastro, para estudantes e empresas
 
-    elif tipo_conta == 'empresa':
-        nome_empresa = input('digite o nome da emprese: ')
-        nome_responsavel = input('digite o nome do responsável: ')
-        email_empresa = input('digite o email da empresa: ')
-        senha_empresa = input('digite sua senha: ')
+#cadastro estudante: menu com imóveis para ele alugar, repúblicas/quartos onde ele pode fazer postagens de vagas, e vagas de estágio
+                #não pode postar vaga de estágio
+                #não pode postar imóveis
+                #pode postar repúblicas e quartos
 
-        print('Empresa cadastrada com sucesso!')
-
-    elif cadastro == 's':
-        print('---login---')
-        email_login = input('digite seu email: ')
-        senha_login = input('digite sua senha: ')
-        if email_estudante == email_login and senha_estudante == senha_login:
-            print('OK')
-
-
-
+#cadastro empresas: menu separado, a empresa vai poder postar imóveis para alugar e vagas de estágio - com área separada para receber curriculos
+                #não pode postar repúblicas e quartos
+                #posta vagas de estágio
+                #posta imóveis
 
